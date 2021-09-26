@@ -11,7 +11,7 @@ BIN=${APP}
 
 cd `dirname $0`
 
-CGO_ENABLED=0 GOOS=$OS GOARCH=$ARCH go build -o ${DEST}/${BIN} ./cmd/${APP}
+CGO_ENABLED=0 GOOS=$OS GOARCH=$ARCH go build -ldflags="-X 'main.version=${VERSION}'" -o ${DEST}/${BIN} ./cmd/${APP}
 cd ${DEST}
 tar -czf ${TAR} ${BIN}
 rm ${BIN}

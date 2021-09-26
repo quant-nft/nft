@@ -10,13 +10,16 @@ import (
 	"syscall"
 )
 
-var app *cli.App
+var (
+	app     *cli.App
+	version = ""
+)
 
 func init() {
 	app = &cli.App{
 		Name:    filepath.Base(os.Args[0]),
 		Usage:   "Common NFT CLI",
-		Version: "0.1.1",
+		Version: version,
 	}
 
 	app.Commands = []*cli.Command{
